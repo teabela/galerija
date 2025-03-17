@@ -2,79 +2,274 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Galerija</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trash Art Studio</title>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      @font-face {
+        font-family: "Dubai";
+        src: url("fonts/Dubai-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Dubai";
+        src: url("fonts/Dubai-Light.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Dubai";
+        src: url("fonts/Dubai-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Dubai";
+        src: url("fonts/Dubai-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #0d0906;
+      }
+      body {
+        color: white;
+        font-family: Arial, sans-serif;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        background: black;
+      }
+      .navbar .logo {
+        flex-shrink: 0;
+        margin-left: 25px;
+      }
+      .navbar .logo img {
+        height: 50px;
+      }
+      .navbar .nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+      }
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-family: "DM Sans", sans-serif;
+      }
+      .navbar a:hover {
+        background: #333;
+        border-radius: 5px;
+      }
+
+      .hero {
+        position: relative;
+        width: 100%;
+        margin-top: 60px;
+        overflow: visible;
+      }
+      /* Uncomment if you want a hero image element (currently commented out)
+      .hero-img {
+        position: absolute;
+        height: 1440px;
+        width: 100%;
+        left: 0;
+        top: -80px;
+        z-index: -1;
+      }
+      */
+      .hero-content {
+        position: relative;
+        padding: 100px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .hero-content h1 {
+        font-family: "Caesar Dressing", cursive;
+        font-size: 64px;
+        text-transform: uppercase;
+        color: #d8d8d8;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      .hero-content p {
+        font-size: 1.2em;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      #hero-text-1,
+      #hero-text-2 {
+        font-family: "Dubai", sans-serif;
+      }
+
+      /* GALLERY */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        padding: 50px 20px;
+      }
+      .gallery img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      /* SECTIONS */
+      .section {
+        padding: 50px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+      }
+    </style>
   </head>
   <body>
-    <main>
-      <div class="gallery">
-        <!-- Each figure represents one gallery item -->
-        <figure>
-          <img src="src/images/1.jpg" alt="Image 1" />
-          <figcaption>Image 1 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/2.jpg" alt="Image 2" />
-          <figcaption>Image 2 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/3.jpg" alt="Image 3" />
-          <figcaption>Image 3 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/4.jpg" alt="Image 3" />
-          <figcaption>Image 3 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/5.jpg" alt="Image 3" />
-          <figcaption>Image 3 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/1.jpg" alt="Image 1" />
-          <figcaption>Image 1 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/2.jpg" alt="Image 2" />
-          <figcaption>Image 2 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/3.jpg" alt="Image 3" />
-          <figcaption>Image 3 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/4.jpg" alt="Image 3" />
-          <figcaption>Image 3 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/5.jpg" alt="Image 3" />
-          <figcaption>Image 3 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/1.jpg" alt="Image 1" />
-          <figcaption>Image 1 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/2.jpg" alt="Image 2" />
-          <figcaption>Image 2 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/3.jpg" alt="Image 3" />
-          <figcaption>Image 3 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/4.jpg" alt="Image 3" />
-          <figcaption>Image 3 Caption</figcaption>
-        </figure>
-        <figure>
-          <img src="src/images/5.jpg" alt="Image 3" />
-          <figcaption>Image 3 Caption</figcaption>
-        </figure>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="src/logo.png" alt="Logo" />
       </div>
-    </main>
+      <div class="nav-links">
+        <a href="#mountedPhotographs">Mounted Photographs</a>
+        <a href="#photoLamps">Photo Lamps</a>
+        <a href="#about">About the Artist</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
 
-    <footer>
-      <p>&copy; 2025 Miodrag Belančić</p>
-    </footer>
+    <div class="hero">
+      <!-- <img
+      class="hero-img"
+      src="src/images/background.jpg"
+      alt="Hero Artwork"
+    /> -->
+      <div class="hero-content">
+        <h1>Trash Art Studio - BelaMi</h1>
+        <p id="hero-text-1">
+          Handcrafted artistic photographs and lamps with a raw aesthetic of
+          time
+        </p>
+        <p id="hero-text-2">
+          Metal, Rust, Leather – Imperfection as a part of character
+        </p>
+      </div>
+    </div>
+
+    <div id="mountedPhotographs" class="gallery">
+      <img src="src/mounted/uf_1.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_2.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_3.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_4.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_5.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_6.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_7.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_8.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_9.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_10.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_11.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_12.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_13.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_14.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_15.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_16.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_17.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_18.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_19.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_20.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_21.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_22.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_23.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_24.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_25.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_26.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_27.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_28.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_29.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_30.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_31.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_32.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_33.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_34.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_35.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_36.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_37.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_38.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_39.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_40.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_41.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_42.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_43.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_44.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_45.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_46.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_47.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_48.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_49.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_50.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_51.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_52.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_53.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_54.jpg" alt="Artwork" />
+      <img src="src/mounted/uf_55.jpg" alt="Artwork" />
+    </div>
+
+    <div id="photoLamps" class="gallery">
+      <img src="src/lamps/pl_1.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_2.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_3.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_4.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_5.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_6.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_7.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_8.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_9.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_10.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_11.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_12.jpg" alt="Artwork" />
+      <img src="src/lamps/pl_13.jpg" alt="Artwork" />
+    </div>
+
+    <div id="about" class="section">
+      <h2>About the Artist</h2>
+      <p>Information about the artist goes here.</p>
+    </div>
+
+    <div id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Contact details go here.</p>
+    </div>
   </body>
 </html>
