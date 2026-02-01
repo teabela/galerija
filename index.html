@@ -3,273 +3,867 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trash Art Studio</title>
+    <title>TrashArtStudio - BelaMi</title>
     <link rel="icon" type="image/png" href="favicon.ico" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <style>
-      @font-face {
-        font-family: "Dubai";
-        src: url("fonts/Dubai-Regular.ttf") format("truetype");
-        font-weight: 400;
-        font-style: normal;
-      }
-
-      @font-face {
-        font-family: "Dubai";
-        src: url("fonts/Dubai-Light.ttf") format("truetype");
-        font-weight: 300;
-        font-style: normal;
-      }
-
-      @font-face {
-        font-family: "Dubai";
-        src: url("fonts/Dubai-Medium.ttf") format("truetype");
-        font-weight: 500;
-        font-style: normal;
-      }
-
-      @font-face {
-        font-family: "Dubai";
-        src: url("fonts/Dubai-Bold.ttf") format("truetype");
-        font-weight: 700;
-        font-style: normal;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: #0d0906;
-      }
-      body {
-        color: white;
-        font-family: Arial, sans-serif;
-        position: relative;
-        min-height: 100vh;
-      }
-
-      /* NAVBAR */
-      .navbar {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        padding: 15px 20px;
-        background: black;
-      }
-      .navbar .logo {
-        flex-shrink: 0;
-        margin-left: 25px;
-      }
-      .navbar .logo img {
-        height: 50px;
-      }
-      .navbar .nav-links {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 10px;
-      }
-      .navbar a {
-        color: white;
-        text-decoration: none;
-        padding: 10px 20px;
-        font-family: "DM Sans", sans-serif;
-      }
-      .navbar a:hover {
-        background: #333;
-        border-radius: 5px;
-      }
-
-      .hero {
-        position: relative;
-        width: 100%;
-        margin-top: 60px;
-        overflow: visible;
-      }
-      /* Uncomment if you want a hero image element (currently commented out)
-      .hero-img {
-        position: absolute;
-        height: 1440px;
-        width: 100%;
-        left: 0;
-        top: -80px;
-        z-index: -1;
-      }
-      */
-      .hero-content {
-        position: relative;
-        padding: 100px 40px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .hero-content h1 {
-        font-family: "Caesar Dressing", cursive;
-        font-size: 64px;
-        text-transform: uppercase;
-        color: #d8d8d8;
-        margin-bottom: 20px;
-        text-align: left;
-      }
-      .hero-content p {
-        font-size: 1.2em;
-        font-weight: 300;
-        text-transform: uppercase;
-        margin-bottom: 15px;
-        text-align: left;
-      }
-      #hero-text-1,
-      #hero-text-2 {
-        font-family: "Dubai", sans-serif;
-      }
-
-      /* GALLERY */
-      .gallery {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 10px;
-        padding: 50px 20px;
-      }
-      .gallery img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-
-      /* SECTIONS */
-      .section {
-        padding: 50px;
-        text-align: center;
-        background: rgba(0, 0, 0, 0.7);
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <nav class="navbar">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
       <div class="logo">
-        <img src="src/logo.png" alt="Logo" />
+        <h1 class="logo-title">TrashArtStudio</h1>
+        <span class="logo-subtitle">BelaMi</span>
       </div>
-      <div class="nav-links">
-        <a href="#mountedPhotographs">Mounted Photographs</a>
-        <a href="#photoLamps">Photo Lamps</a>
-        <a href="#about">About the Artist</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <ul class="nav-sections">
+        <li>
+          <a href="#home" class="nav-item active">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#works" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <span>Works</span>
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>About the Artist</span>
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>Contact</span>
+          </a>
+        </li>
+      </ul>
     </nav>
 
-    <div class="hero">
-      <!-- <img
-      class="hero-img"
-      src="src/images/background.jpg"
-      alt="Hero Artwork"
-    /> -->
-      <div class="hero-content">
-        <h1>Trash Art Studio - BelaMi</h1>
-        <p id="hero-text-1">
-          Handcrafted artistic photographs and lamps with a raw aesthetic of
-          time
-        </p>
-        <p id="hero-text-2">
-          Metal, Rust, Leather – Imperfection as a part of character
-        </p>
-      </div>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="background-image">
+          <img src="assets/background.png" alt="" />
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title">TrashArtStudio</h1>
+          <p class="hero-tagline">Handmade artistic photographs and lamps with a raw aesthetic of time.</p>
+          <p class="hero-materials">Metal, rust, leather</p>
+          <p class="hero-location">Handmade in Bajša, Serbia • Each piece is unique • Custom sizes on request</p>
+          <div class="hero-buttons">
+            <a href="#works" class="btn btn-primary">View works</a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Send inquiry</span>
+              <span class="btn-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
 
-    <div id="mountedPhotographs" class="gallery">
-      <img src="src/mounted/uf_1.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_2.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_3.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_4.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_5.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_6.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_7.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_8.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_9.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_10.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_11.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_12.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_13.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_14.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_15.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_16.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_17.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_18.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_19.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_20.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_21.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_22.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_23.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_24.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_25.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_26.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_27.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_28.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_29.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_30.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_31.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_32.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_33.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_34.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_35.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_36.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_37.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_38.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_39.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_40.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_41.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_42.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_43.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_44.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_45.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_46.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_47.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_48.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_49.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_50.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_51.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_52.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_53.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_54.jpg" alt="Artwork" />
-      <img src="src/mounted/uf_55.jpg" alt="Artwork" />
-    </div>
+      <!-- Works Section -->
+      <section id="works" class="works-section">
+        <div class="section-header">
+          <h2 class="section-title">Works</h2>
+          <p class="section-description">To inquire about specific piece copy the Reference number and click the 'Inquire about this piece' button.</p>
+        </div>
 
-    <div id="photoLamps" class="gallery">
-      <img src="src/lamps/pl_1.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_2.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_3.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_4.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_5.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_6.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_7.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_8.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_9.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_10.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_11.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_12.jpg" alt="Artwork" />
-      <img src="src/lamps/pl_13.jpg" alt="Artwork" />
-    </div>
+        <!-- Small Format Works (8 cards) -->
+        <div class="works-category">
+          <div class="category-header">
+            <h3 class="category-title">Small Format Works</h3>
+            <p class="category-description">Mounted photographs in small format, each piece handcrafted with metal or leather.</p>
+          </div>
+          <div class="works-grid">
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/1. Small Format Works/1_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/1. Small Format Works/1_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Industrial Memory I</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-S-001')">
+                  <span>Ref: MPH-S-001</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, oxidized brass frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">30 x 40 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/1. Small Format Works/2_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/1. Small Format Works/2_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Industrial Memory II</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-S-002')">
+                  <span>Ref: MPH-S-002</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on leather, steel frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">30 x 40 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/1. Small Format Works/3_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/1. Small Format Works/3_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Forgotten Passage</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-S-003')">
+                  <span>Ref: MPH-S-003</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, rust patina</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">25 x 35 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/1. Small Format Works/4_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/1. Small Format Works/4_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Rust & Time</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-S-004')">
+                  <span>Ref: MPH-S-004</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on metal, welded frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">30 x 40 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/1. Small Format Works/5_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/1. Small Format Works/5_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Silent Echo</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-S-005')">
+                  <span>Ref: MPH-S-005</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, brass details</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">25 x 35 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/1. Small Format Works/6_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/1. Small Format Works/6_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Weathered Light</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-S-006')">
+                  <span>Ref: MPH-S-006</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on leather, copper frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">30 x 40 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/1. Small Format Works/7_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/1. Small Format Works/7_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Decayed Beauty</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-S-007')">
+                  <span>Ref: MPH-S-007</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, oxidized finish</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">25 x 35 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/1. Small Format Works/8_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/1. Small Format Works/8_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Metal Dreams</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-S-008')">
+                  <span>Ref: MPH-S-008</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on metal, brass frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">30 x 40 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+          </div>
+        </div>
 
-    <div id="about" class="section">
-      <h2>About the Artist</h2>
-      <p>Information about the artist goes here.</p>
-    </div>
+        <!-- Medium Format Works (17 cards) -->
+        <div class="works-category">
+          <div class="category-header">
+            <h3 class="category-title">Medium Format Works</h3>
+            <p class="category-description">Mounted photographs in medium format, each piece handcrafted with metal or leather.</p>
+          </div>
+          <div class="works-grid">
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/1_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/1_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Abandoned Machinery</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-001')">
+                  <span>Ref: MPH-M-001</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, oxidized frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/2_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/2_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Factory Dreams</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-002')">
+                  <span>Ref: MPH-M-002</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on leather, brass frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/3_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/3_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Railway Relics</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-003')">
+                  <span>Ref: MPH-M-003</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, rust patina</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">60 x 80 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/4_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/4_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Warehouse Window</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-004')">
+                  <span>Ref: MPH-M-004</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on metal, copper details</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/5_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/5_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Steel Memories</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-005')">
+                  <span>Ref: MPH-M-005</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, welded frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/6_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/6_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Oxidized Vision</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-006')">
+                  <span>Ref: MPH-M-006</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on leather, oxidized brass</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">60 x 80 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/7_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/7_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Patina Stories</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-007')">
+                  <span>Ref: MPH-M-007</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, copper patina</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/8_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/8_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Forgotten Halls</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-008')">
+                  <span>Ref: MPH-M-008</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on metal, heavy frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">60 x 80 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/9_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/9_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Iron Legacy</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-009')">
+                  <span>Ref: MPH-M-009</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, iron details</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/10_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/10_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Rust Chronicle</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-010')">
+                  <span>Ref: MPH-M-010</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on leather, rust finish</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">60 x 80 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/11_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/11_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Industrial Echoes</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-011')">
+                  <span>Ref: MPH-M-011</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, brass accents</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/12_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/12_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Weathered Steel</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-012')">
+                  <span>Ref: MPH-M-012</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on metal, oxidized frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">60 x 80 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/13_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/13_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Forgotten Framework</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-013')">
+                  <span>Ref: MPH-M-013</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on leather, copper patina</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/14_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/14_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Metal Whispers</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-014')">
+                  <span>Ref: MPH-M-014</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, welded details</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">60 x 80 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/15_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/15_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Aged Remnants</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-015')">
+                  <span>Ref: MPH-M-015</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on metal, rust treatment</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/16_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/16_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Silent Industry</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-016')">
+                  <span>Ref: MPH-M-016</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on leather, brass frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">60 x 80 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/2. Medium Format Works/17_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/2. Medium Format Works/17_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Timeworn Beauty</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-M-017')">
+                  <span>Ref: MPH-M-017</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, oxidized finish</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+          </div>
+        </div>
 
-    <div id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Contact details go here.</p>
-    </div>
+        <!-- Large Format Works (2 cards) -->
+        <div class="works-category">
+          <div class="category-header">
+            <h3 class="category-title">Large Format Works</h3>
+            <p class="category-description">Mounted photographs in large format, each piece handcrafted with metal or leather.</p>
+          </div>
+          <div class="works-grid">
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/3. Large Format Works/1_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/3. Large Format Works/1_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Industrial Cathedral</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-L-001')">
+                  <span>Ref: MPH-L-001</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on steel, heavy welded frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">80 x 120 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/3. Large Format Works/2_1.jpg" alt="Artwork" class="artwork-img artwork-img-main" />
+                <img src="assets/3. Large Format Works/2_2.jpg" alt="Artwork" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Forgotten Giant</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('MPH-L-002')">
+                  <span>Ref: MPH-L-002</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Photo on leather, oxidized steel frame</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">100 x 150 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Photo Lamps (3 cards) -->
+        <div class="works-category">
+          <div class="category-header">
+            <h3 class="category-title">Photo Lamps</h3>
+            <p class="category-description">Functional art pieces, photographs that illuminate.</p>
+          </div>
+          <div class="works-grid">
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/4. Photo Lamps/1_1.jpg" alt="Photo Lamp" class="artwork-img artwork-img-main" />
+                <img src="assets/4. Photo Lamps/1_2.jpg" alt="Photo Lamp" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Luminous Memory I</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('PL-001')">
+                  <span>Ref: PL-001</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Backlit photo on steel, LED illumination</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">40 x 60 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/4. Photo Lamps/2_1.jpg" alt="Photo Lamp" class="artwork-img artwork-img-main" />
+                <img src="assets/4. Photo Lamps/2_2.jpg" alt="Photo Lamp" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Luminous Memory II</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('PL-002')">
+                  <span>Ref: PL-002</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Backlit photo, brass frame, warm LED</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">50 x 70 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+            <article class="artwork-card">
+              <div class="artwork-images">
+                <img src="assets/4. Photo Lamps/3_1.jpg" alt="Photo Lamp" class="artwork-img artwork-img-main" />
+                <img src="assets/4. Photo Lamps/3_2.jpg" alt="Photo Lamp" class="artwork-img artwork-img-secondary" />
+              </div>
+              <div class="artwork-info">
+                <h4 class="artwork-title">Industrial Glow</h4>
+                <span class="badge badge-available">Available</span>
+                <button class="badge badge-ref" onclick="copyRef('PL-003')">
+                  <span>Ref: PL-003</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <div class="artwork-details">
+                  <div class="detail-group"><span class="detail-label">Materials & Construction</span><span class="detail-value">Backlit photo on leather, steel base</span></div>
+                  <div class="detail-group"><span class="detail-label">Dimensions</span><span class="detail-value">45 x 65 cm</span></div>
+                </div>
+                <a href="#contact" class="btn btn-inquire"><span>Inquire about this piece</span><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- About the Artist Section -->
+      <section id="about" class="about-section">
+        <div class="section-header">
+          <h2 class="section-title">About the Artist</h2>
+          <p class="section-description">Meet the artist</p>
+        </div>
+        <div class="about-content">
+          <div class="about-image">
+            <img src="assets/5. Artist/1.jpg" alt="Mile Belančić" />
+          </div>
+          <div class="about-text">
+            <div class="about-header">
+              <h3 class="about-name">Mile Belančić, BelaMi</h3>
+              <p class="about-location">Bajša, Vojvodina, Serbia</p>
+            </div>
+            <p class="about-bio">
+              I create handmade mounted photographs and photo lamps from my studio in Bajša, Northern Serbia. Each piece combines original photography with metal or leather mounting, welded frames, and intentional oxidation. These aren't just prints, they're objects that carry the weight and texture of industrial craft.
+            </p>
+            <div class="about-section-block">
+              <h4 class="about-subtitle">Background</h4>
+              <p class="about-paragraph">
+                I studied Art History, which influences my approach to composition and subject matter. My work focuses on abandoned industrial spaces across Vojvodina and beyond — factories, warehouses, railway infrastructure. Places where time and rust tell their own stories.
+              </p>
+            </div>
+            <blockquote class="about-quote">
+              "The material is part of the message. Steel rusts, leather ages, brass develops patina, just like the subjects I photograph."
+            </blockquote>
+            <div class="about-section-block">
+              <h4 class="about-subtitle">Process</h4>
+              <p class="about-paragraph">
+                Photography → Digital editing → Printing on metal or leather → Hand mounting → Welding details → Controlled oxidation → Each piece unique
+              </p>
+            </div>
+            <div class="about-links">
+              <a href="https://instagram.com/_trashartstudio" target="_blank" class="about-link">Instagram: @_trashartstudio</a>
+              <a href="https://linkedin.com/in/mile-belancic" target="_blank" class="about-link">LinkedIn: linkedin.com/in/mile-belancic</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-content">
+          <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-group">
+              <label for="name" class="form-label">Full name *</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email *</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="location" class="form-label">City / Country</label>
+              <input type="text" id="location" name="location" class="form-input" placeholder="Belgrade, Serbia" />
+            </div>
+            <div class="form-group">
+              <label for="interest" class="form-label">Interest *</label>
+              <select id="interest" name="interest" class="form-select" required>
+                <option value="" disabled selected>Select your interest</option>
+                <option value="mounted">Mounted Photographs</option>
+                <option value="lamps">Photo Lamps</option>
+                <option value="custom">Custom Work</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="reference" class="form-label">Artwork reference</label>
+              <input type="text" id="reference" name="reference" class="form-input" placeholder="Specific artwork you're interested in" />
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message *</label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your inquiry..." required></textarea>
+            </div>
+            <div class="form-group form-checkbox">
+              <input type="checkbox" id="consent" name="consent" required />
+              <label for="consent" class="form-checkbox-label">
+                I consent to having TrashArtStudio store my submitted information to respond to my inquiry. *
+              </label>
+            </div>
+            <button type="submit" class="btn btn-submit">Send inquiry</button>
+          </form>
+          <div class="contact-info">
+            <div class="contact-map">
+              <img src="assets/bajsa_map.png" alt="Bajša, Vojvodina, Serbia" class="map-image" />
+            </div>
+            <div class="contact-details">
+              <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <a href="mailto:contact@trashartstudio.com" class="contact-value">contact@trashartstudio.com</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Instagram</span>
+                <a href="https://instagram.com/_trashartstudio" target="_blank" class="contact-value">@_trashartstudio</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/mile-belancic" target="_blank" class="contact-value">linkedin.com/in/mile-belancic</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p class="footer-copyright">© TrashArtStudio BelaMi</p>
+        <p class="footer-tagline">Handmade works from Bajša, Serbia.</p>
+      </footer>
+    </main>
+
+    <script>
+      // Copy reference number to clipboard
+      function copyRef(ref) {
+        navigator.clipboard.writeText(ref).then(() => {
+          alert('Reference copied: ' + ref);
+        });
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Active navigation state
+      const sections = document.querySelectorAll('section[id]');
+      const navItems = document.querySelectorAll('.nav-item');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navItems.forEach(item => {
+          item.classList.remove('active');
+          if (item.getAttribute('href') === '#' + current) {
+            item.classList.add('active');
+          }
+        });
+      });
+    </script>
   </body>
 </html>
