@@ -28,6 +28,7 @@
         </a>
       </div>
       <div class="nav-center">
+        <a href="#home" class="nav-item">Home</a>
         <div class="nav-item-wrapper">
           <a href="#works" class="nav-item">
             <span>Works</span>
@@ -53,23 +54,18 @@
       <section id="home" class="hero">
         <div class="hero-content">
           <h1 class="hero-title">TrashArtStudio</h1>
-          <p class="hero-tagline">Handmade artistic mounted photos and lamps with a raw aesthetic of time</p>
+          <p class="hero-tagline" style="white-space: nowrap;">Handmade artistic mounted photos and lamps with a raw aesthetic of time</p>
           <p class="hero-materials">Metal, rust, leather</p>
           <p class="hero-location">Handmade in Bajša, Serbia • Each piece is unique • Custom sizes on request</p>
           <div class="hero-buttons">
             <a href="#works" class="btn btn-primary">View works</a>
             <a href="#contact" class="btn btn-secondary">
               <span>Send inquiry</span>
-              <span class="btn-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </span>
             </a>
           </div>
         </div>
         <div class="scroll-indicator">
+          <span class="scroll-indicator-text">Scroll down</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
@@ -162,7 +158,8 @@
       <section id="contact" class="contact-section">
         <h2 class="section-title">Contact</h2>
         <div class="contact-content">
-          <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+          <form class="contact-form" id="contactForm">
+            <input type="text" name="_honey" style="display:none" />
             <div class="form-group">
               <label for="name" class="form-label">Full name *</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required />
@@ -203,12 +200,12 @@
           </form>
           <div class="contact-info">
             <div class="contact-map">
-              <img src="assets/bajsa_map.png" alt="Bajša, Vojvodina, Serbia" class="map-image" />
+              <a href="https://www.google.com/maps/@45.77678049971312,19.585045243708922,14z" target="_blank" rel="noopener noreferrer"><img src="assets/bajsa_map.png" alt="Bajša, Vojvodina, Serbia" class="map-image" /></a>
             </div>
             <div class="contact-details">
               <div class="contact-item">
                 <span class="contact-label">Email</span>
-                <a href="mailto:contact@trashartstudio.com" class="contact-value">contact@trashartstudio.com</a>
+                <a href="mailto:teabela33@gmail.com" class="contact-value">teabela33@gmail.com</a>
               </div>
               <div class="contact-item">
                 <span class="contact-label">Instagram</span>
@@ -230,13 +227,24 @@
       </footer>
     </main>
 
+    <!-- Image Lightbox -->
+    <div class="lightbox-overlay" id="imageLightbox">
+      <button type="button" class="lightbox-close">&times;</button>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="" />
+    </div>
+
     <!-- Inquiry Modal -->
     <div class="modal-overlay" id="inquiryModal">
       <div class="modal">
         <button type="button" class="modal-close" onclick="closeInquiryModal()">&times;</button>
+        <div class="modal-artwork-images">
+          <img id="modalArtworkImgMain" class="modal-artwork-img modal-artwork-img-main" src="" alt="" />
+          <img id="modalArtworkImgSecondary" class="modal-artwork-img modal-artwork-img-secondary" src="" alt="" />
+        </div>
         <h3 class="modal-title">Inquire About This Piece</h3>
         <p class="modal-ref">Reference: <span id="modalRefNumber"></span></p>
-        <form class="modal-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <form class="modal-form" id="modalInquiryForm">
+          <input type="text" name="_honey" style="display:none" />
           <input type="hidden" id="modalRefInput" name="reference" />
           <div class="form-group">
             <label for="modal-name" class="form-label">Full name *</label>
@@ -328,24 +336,28 @@
         const ref = `${category.refPrefix}-${refNum}`;
         const imgBase = `${category.path}/${index + 1}`;
 
-        // Card dimensions: 504x480 (reduced height)
-        // Notch at bottom-right with S-curve transition
+        // Card dimensions: 504x514 (exact Figma)
+        // S-curve notch at bottom-right for Inquire button dock
         return `
           <article class="artwork-card">
-            <svg class="card-frame" viewBox="0 0 504 480" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="card-frame" viewBox="0 0 504 514" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
+                <linearGradient id="border-grad-${ref}" x1="0" y1="0" x2="504" y2="514" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#DFC9C9"/>
+                  <stop offset="100%" stop-color="#706363"/>
+                </linearGradient>
                 <mask id="card-mask-${ref}" maskUnits="userSpaceOnUse">
-                  <rect width="504" height="480" fill="black"/>
-                  <path d="M28 0 L476 0 A28 28 0 0 1 504 28 L504 391 A28 28 0 0 1 476 419 L249 419 A20 20 0 0 0 229 439 L229 452 A28 28 0 0 1 201 480 L28 480 A28 28 0 0 1 0 452 L0 28 A28 28 0 0 1 28 0 Z" fill="white"/>
+                  <rect width="504" height="514" fill="black"/>
+                  <path d="M0 20C0 8.95431 8.95431 0 20 0H484C495.046 0 504 8.95431 504 20V443C504 454.046 495.046 463 484 463H288C271.431 463 258 476.431 258 493V494C258 505.046 249.046 514 238 514H20C8.9543 514 0 505.046 0 494V20Z" fill="white"/>
                 </mask>
               </defs>
-              <rect width="504" height="480" fill="rgba(0, 0, 0, 0.8)" mask="url(#card-mask-${ref})"/>
-              <path d="M28 0.5 L476 0.5 A27.5 27.5 0 0 1 503.5 28 L503.5 391 A27.5 27.5 0 0 1 476 418.5 L249 418.5 A20.5 20.5 0 0 0 228.5 439 L228.5 452 A27.5 27.5 0 0 1 201 479.5 L28 479.5 A27.5 27.5 0 0 1 0.5 452 L0.5 28 A27.5 27.5 0 0 1 28 0.5 Z" fill="none" stroke="#595253" stroke-width="1"/>
+              <rect width="504" height="514" fill="rgba(0, 0, 0, 0.65)" mask="url(#card-mask-${ref})"/>
+              <path d="M20 0.5H484C494.77 0.5 503.5 9.23 503.5 20V443C503.5 453.77 494.77 462.5 484 462.5H288C271.155 462.5 257.5 476.155 257.5 493V494C257.5 504.77 248.77 513.5 238 513.5H20C9.23 513.5 0.5 504.77 0.5 494V20C0.5 9.4 8.96 0.77 19.5 0.51L20 0.5Z" fill="none" stroke="url(#border-grad-${ref})" stroke-opacity="0.6" stroke-width="1"/>
             </svg>
             <div class="card-content">
               <div class="artwork-images">
-                <img src="${imgBase}_1.jpg" alt="${item.title}" class="artwork-img artwork-img-main" />
-                <img src="${imgBase}_2.jpg" alt="${item.title}" class="artwork-img artwork-img-secondary" />
+                <img src="${imgBase}_1.jpg" alt="${item.title}" class="artwork-img artwork-img-main" onclick="openLightbox(this)" />
+                <img src="${imgBase}_2.jpg" alt="${item.title}" class="artwork-img artwork-img-secondary" onclick="openLightbox(this)" />
               </div>
               <div class="artwork-info">
                 <h4 class="artwork-title">${item.title}</h4>
@@ -463,9 +475,17 @@
         const card = button.closest('.artwork-card');
         const refBadge = card.querySelector('.badge-ref span');
         const refNumber = refBadge ? refBadge.textContent.replace('Ref: ', '') : '';
+        const mainImg = card.querySelector('.artwork-img-main');
+        const secondaryImg = card.querySelector('.artwork-img-secondary');
 
         document.getElementById('modalRefNumber').textContent = refNumber;
         document.getElementById('modalRefInput').value = refNumber;
+        const modalMain = document.getElementById('modalArtworkImgMain');
+        const modalSecondary = document.getElementById('modalArtworkImgSecondary');
+        modalMain.src = mainImg ? mainImg.src : '';
+        modalMain.alt = mainImg ? mainImg.alt : '';
+        modalSecondary.src = secondaryImg ? secondaryImg.src : '';
+        modalSecondary.alt = secondaryImg ? secondaryImg.alt : '';
         document.getElementById('inquiryModal').classList.add('active');
         document.body.style.overflow = 'hidden';
 
@@ -489,9 +509,82 @@
 
       // Close modal on Escape key
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && document.getElementById('inquiryModal').classList.contains('active')) {
-          closeInquiryModal();
+        if (e.key === 'Escape') {
+          if (document.getElementById('imageLightbox').classList.contains('active')) {
+            closeLightbox();
+          } else if (document.getElementById('inquiryModal').classList.contains('active')) {
+            closeInquiryModal();
+          }
         }
+      });
+
+      // Image Lightbox
+      function openLightbox(img) {
+        const lightbox = document.getElementById('imageLightbox');
+        document.getElementById('lightboxImg').src = img.src;
+        document.getElementById('lightboxImg').alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        document.getElementById('imageLightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('imageLightbox').addEventListener('click', function(e) {
+        if (e.target === this || e.target.classList.contains('lightbox-close')) {
+          closeLightbox();
+        }
+      });
+
+      // FormSubmit AJAX submission
+      function submitFormAjax(form, subject) {
+        const formData = new FormData(form);
+        formData.append('_subject', subject);
+        formData.append('_captcha', 'false');
+        formData.append('_template', 'table');
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        fetch('https://formsubmit.co/ajax/teabela33@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            submitBtn.textContent = 'Sent!';
+            form.reset();
+            setTimeout(() => {
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+            }, 2000);
+          } else {
+            submitBtn.textContent = 'Error - try again';
+            submitBtn.disabled = false;
+            setTimeout(() => { submitBtn.textContent = originalText; }, 2000);
+          }
+        })
+        .catch(() => {
+          submitBtn.textContent = 'Error - try again';
+          submitBtn.disabled = false;
+          setTimeout(() => { submitBtn.textContent = originalText; }, 2000);
+        });
+      }
+
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitFormAjax(this, 'New inquiry from TrashArtStudio Gallery');
+      });
+
+      document.getElementById('modalInquiryForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitFormAjax(this, 'Artwork Inquiry from Gallery');
       });
 
       // Works dropdown for mobile
