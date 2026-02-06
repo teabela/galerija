@@ -205,7 +205,7 @@
             <div class="contact-details">
               <div class="contact-item">
                 <span class="contact-label">Email</span>
-                <a href="mailto:teabela33@gmail.com" class="contact-value">teabela33@gmail.com</a>
+                <a href="mailto:trashartstudio@gmail.com" class="contact-value">trashartstudio@gmail.com</a>
               </div>
               <div class="contact-item">
                 <span class="contact-label">Instagram</span>
@@ -550,7 +550,7 @@
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
 
-        fetch('https://formsubmit.co/ajax/teabela33@gmail.com', {
+        fetch('https://formsubmit.co/ajax/trashartstudio@gmail.com', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: formData
@@ -560,10 +560,18 @@
           if (data.success) {
             submitBtn.textContent = 'Sent!';
             form.reset();
-            setTimeout(() => {
-              submitBtn.textContent = originalText;
-              submitBtn.disabled = false;
-            }, 2000);
+            if (form.id === 'modalInquiryForm') {
+              setTimeout(() => {
+                closeInquiryModal();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+              }, 1000);
+            } else {
+              setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+              }, 2000);
+            }
           } else {
             submitBtn.textContent = 'Error - try again';
             submitBtn.disabled = false;
