@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TrashArtStudio - BelaMi</title>
-    <link rel="icon" type="image/png" href="favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="favi_dark.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/svg+xml" href="favi_light.svg" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="favi_dark.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,6 +29,11 @@
           <span class="logo-subtitle">BelaMi</span>
         </a>
       </div>
+      <button class="burger-menu" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
       <div class="nav-center">
         <a href="#home" class="nav-item">Home</a>
         <div class="nav-item-wrapper">
@@ -174,13 +181,21 @@
             </div>
             <div class="form-group">
               <label for="interest" class="form-label">Interest *</label>
-              <select id="interest" name="interest" class="form-select" required>
-                <option value="" disabled selected>Select your interest</option>
-                <option value="mounted">Mounted Photographs</option>
-                <option value="lamps">Photo Lamps</option>
-                <option value="custom">Custom Work</option>
-                <option value="other">Other</option>
-              </select>
+              <div class="custom-select" id="interest-select">
+                <input type="hidden" name="interest" id="interest" required />
+                <div class="custom-select-trigger">
+                  <span class="custom-select-value">Select your interest</span>
+                  <svg class="custom-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <div class="custom-select-options">
+                  <div class="custom-select-option" data-value="mounted">Mounted Photographs</div>
+                  <div class="custom-select-option" data-value="lamps">Photo Lamps</div>
+                  <div class="custom-select-option" data-value="custom">Custom Work</div>
+                  <div class="custom-select-option" data-value="other">Other</div>
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <label for="reference" class="form-label">Artwork reference</label>
@@ -273,14 +288,14 @@
           refPrefix: 'MPH-S',
           count: 8,
           items: [
-            { title: 'Industrial Memory I', materials: 'Photo on steel, oxidized brass frame', dimensions: '30 x 40 cm' },
-            { title: 'Industrial Memory II', materials: 'Photo on leather, steel frame', dimensions: '30 x 40 cm' },
-            { title: 'Forgotten Passage', materials: 'Photo on steel, rust patina', dimensions: '25 x 35 cm' },
-            { title: 'Rust & Time', materials: 'Photo on metal, welded frame', dimensions: '30 x 40 cm' },
-            { title: 'Silent Echo', materials: 'Photo on steel, brass details', dimensions: '25 x 35 cm' },
-            { title: 'Weathered Light', materials: 'Photo on leather, copper frame', dimensions: '30 x 40 cm' },
-            { title: 'Decayed Beauty', materials: 'Photo on steel, oxidized finish', dimensions: '25 x 35 cm' },
-            { title: 'Metal Dreams', materials: 'Photo on metal, brass frame', dimensions: '30 x 40 cm' }
+            { title: 'Artwork #1', materials: 'Photo on steel, oxidized brass frame', dimensions: '30 x 40 cm' },
+            { title: 'Artwork #2', materials: 'Photo on leather, steel frame', dimensions: '30 x 40 cm' },
+            { title: 'Artwork #3', materials: 'Photo on steel, rust patina', dimensions: '25 x 35 cm' },
+            { title: 'Artwork #4', materials: 'Photo on metal, welded frame', dimensions: '30 x 40 cm' },
+            { title: 'Artwork #5', materials: 'Photo on steel, brass details', dimensions: '25 x 35 cm' },
+            { title: 'Artwork #6', materials: 'Photo on leather, copper frame', dimensions: '30 x 40 cm' },
+            { title: 'Artwork #7', materials: 'Photo on steel, oxidized finish', dimensions: '25 x 35 cm' },
+            { title: 'Artwork #8', materials: 'Photo on metal, brass frame', dimensions: '30 x 40 cm' }
           ]
         },
         medium: {
@@ -288,23 +303,23 @@
           refPrefix: 'MPH-M',
           count: 17,
           items: [
-            { title: 'Abandoned Machinery', materials: 'Photo on steel, oxidized frame', dimensions: '50 x 70 cm' },
-            { title: 'Factory Dreams', materials: 'Photo on leather, brass frame', dimensions: '50 x 70 cm' },
-            { title: 'Railway Relics', materials: 'Photo on steel, rust patina', dimensions: '60 x 80 cm' },
-            { title: 'Warehouse Window', materials: 'Photo on metal, copper details', dimensions: '50 x 70 cm' },
-            { title: 'Steel Memories', materials: 'Photo on steel, welded frame', dimensions: '50 x 70 cm' },
-            { title: 'Oxidized Vision', materials: 'Photo on leather, oxidized brass', dimensions: '60 x 80 cm' },
-            { title: 'Patina Stories', materials: 'Photo on steel, copper patina', dimensions: '50 x 70 cm' },
-            { title: 'Forgotten Halls', materials: 'Photo on metal, heavy frame', dimensions: '60 x 80 cm' },
-            { title: 'Iron Legacy', materials: 'Photo on steel, iron details', dimensions: '50 x 70 cm' },
-            { title: 'Rust Chronicle', materials: 'Photo on leather, rust finish', dimensions: '60 x 80 cm' },
-            { title: 'Industrial Echoes', materials: 'Photo on steel, brass accents', dimensions: '50 x 70 cm' },
-            { title: 'Weathered Steel', materials: 'Photo on metal, oxidized frame', dimensions: '60 x 80 cm' },
-            { title: 'Forgotten Framework', materials: 'Photo on leather, copper patina', dimensions: '50 x 70 cm' },
-            { title: 'Metal Whispers', materials: 'Photo on steel, welded details', dimensions: '60 x 80 cm' },
-            { title: 'Aged Remnants', materials: 'Photo on metal, rust treatment', dimensions: '50 x 70 cm' },
-            { title: 'Silent Industry', materials: 'Photo on leather, brass frame', dimensions: '60 x 80 cm' },
-            { title: 'Timeworn Beauty', materials: 'Photo on steel, oxidized finish', dimensions: '50 x 70 cm' }
+            { title: 'Artwork #9', materials: 'Photo on steel, oxidized frame', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #10', materials: 'Photo on leather, brass frame', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #11', materials: 'Photo on steel, rust patina', dimensions: '60 x 80 cm' },
+            { title: 'Artwork #12', materials: 'Photo on metal, copper details', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #13', materials: 'Photo on steel, welded frame', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #14', materials: 'Photo on leather, oxidized brass', dimensions: '60 x 80 cm' },
+            { title: 'Artwork #15', materials: 'Photo on steel, copper patina', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #16', materials: 'Photo on metal, heavy frame', dimensions: '60 x 80 cm' },
+            { title: 'Artwork #17', materials: 'Photo on steel, iron details', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #18', materials: 'Photo on leather, rust finish', dimensions: '60 x 80 cm' },
+            { title: 'Artwork #19', materials: 'Photo on steel, brass accents', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #20', materials: 'Photo on metal, oxidized frame', dimensions: '60 x 80 cm' },
+            { title: 'Artwork #21', materials: 'Photo on leather, copper patina', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #22', materials: 'Photo on steel, welded details', dimensions: '60 x 80 cm' },
+            { title: 'Artwork #23', materials: 'Photo on metal, rust treatment', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #24', materials: 'Photo on leather, brass frame', dimensions: '60 x 80 cm' },
+            { title: 'Artwork #25', materials: 'Photo on steel, oxidized finish', dimensions: '50 x 70 cm' }
           ]
         },
         large: {
@@ -312,8 +327,8 @@
           refPrefix: 'MPH-L',
           count: 2,
           items: [
-            { title: 'Industrial Cathedral', materials: 'Photo on steel, heavy welded frame', dimensions: '80 x 120 cm' },
-            { title: 'Forgotten Giant', materials: 'Photo on leather, oxidized steel frame', dimensions: '100 x 150 cm' }
+            { title: 'Artwork #26', materials: 'Photo on steel, heavy welded frame', dimensions: '80 x 120 cm' },
+            { title: 'Artwork #27', materials: 'Photo on leather, oxidized steel frame', dimensions: '100 x 150 cm' }
           ]
         },
         lamps: {
@@ -321,9 +336,9 @@
           refPrefix: 'PL',
           count: 3,
           items: [
-            { title: 'Luminous Memory I', materials: 'Backlit photo on steel, LED illumination', dimensions: '40 x 60 cm' },
-            { title: 'Luminous Memory II', materials: 'Backlit photo, brass frame, warm LED', dimensions: '50 x 70 cm' },
-            { title: 'Industrial Glow', materials: 'Backlit photo on leather, steel base', dimensions: '45 x 65 cm' }
+            { title: 'Artwork #28', materials: 'Backlit photo on steel, LED illumination', dimensions: '40 x 60 cm' },
+            { title: 'Artwork #29', materials: 'Backlit photo, brass frame, warm LED', dimensions: '50 x 70 cm' },
+            { title: 'Artwork #30', materials: 'Backlit photo on leather, steel base', dimensions: '45 x 65 cm' }
           ]
         }
       };
@@ -560,6 +575,14 @@
           if (data.success) {
             submitBtn.textContent = 'Sent!';
             form.reset();
+            // Reset custom select if present
+            var cs = form.querySelector('.custom-select');
+            if (cs) {
+              cs.classList.remove('has-value', 'open');
+              cs.querySelector('.custom-select-value').textContent = 'Select your interest';
+              cs.querySelector('input[type="hidden"]').value = '';
+              cs.querySelectorAll('.custom-select-option').forEach(function(o) { o.classList.remove('selected'); });
+            }
             if (form.id === 'modalInquiryForm') {
               setTimeout(() => {
                 closeInquiryModal();
@@ -595,21 +618,84 @@
         submitFormAjax(this, 'Artwork Inquiry from Gallery');
       });
 
-      // Works dropdown for mobile
+      // Custom select dropdown (Interest field)
+      const customSelect = document.getElementById('interest-select');
+      if (customSelect) {
+        const trigger = customSelect.querySelector('.custom-select-trigger');
+        const valueDisplay = customSelect.querySelector('.custom-select-value');
+        const hiddenInput = customSelect.querySelector('input[type="hidden"]');
+        const options = customSelect.querySelectorAll('.custom-select-option');
+
+        trigger.addEventListener('click', function() {
+          customSelect.classList.toggle('open');
+        });
+
+        options.forEach(function(option) {
+          option.addEventListener('click', function() {
+            hiddenInput.value = this.dataset.value;
+            valueDisplay.textContent = this.textContent;
+            customSelect.classList.add('has-value');
+            customSelect.classList.remove('open');
+            options.forEach(function(o) { o.classList.remove('selected'); });
+            this.classList.add('selected');
+          });
+        });
+
+        document.addEventListener('click', function(e) {
+          if (!customSelect.contains(e.target)) {
+            customSelect.classList.remove('open');
+          }
+        });
+      }
+
+      // Burger menu toggle
+      const burgerMenu = document.querySelector('.burger-menu');
+      const navCenter = document.querySelector('.nav-center');
       const worksDropdownWrapper = document.querySelector('.nav-item-wrapper');
+
+      function closeMobileMenu() {
+        burgerMenu.classList.remove('active');
+        navCenter.classList.remove('mobile-open');
+        burgerMenu.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      }
+
+      burgerMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = this.classList.toggle('active');
+        navCenter.classList.toggle('mobile-open');
+        this.setAttribute('aria-expanded', isOpen);
+        document.body.classList.toggle('menu-open');
+      });
+
+      // Works dropdown toggle (mobile: click, desktop: hover via CSS)
       if (worksDropdownWrapper) {
         worksDropdownWrapper.addEventListener('click', function(e) {
           if (window.innerWidth <= 768) {
             e.preventDefault();
+            e.stopPropagation();
             this.classList.toggle('active');
           }
         });
       }
 
-      // Close dropdown when clicking outside on mobile
+      // Close menu when clicking outside
       document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768 && worksDropdownWrapper && !worksDropdownWrapper.contains(e.target)) {
-          worksDropdownWrapper.classList.remove('active');
+        if (window.innerWidth <= 768) {
+          if (worksDropdownWrapper && !worksDropdownWrapper.contains(e.target)) {
+            worksDropdownWrapper.classList.remove('active');
+          }
+          if (!navCenter.contains(e.target) && !burgerMenu.contains(e.target)) {
+            closeMobileMenu();
+          }
+        }
+      });
+
+      // Close mobile menu on resize to desktop
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          closeMobileMenu();
+          if (worksDropdownWrapper) worksDropdownWrapper.classList.remove('active');
         }
       });
 
@@ -628,7 +714,8 @@
               behavior: 'smooth'
             });
 
-            // Close mobile dropdown after clicking
+            // Close mobile menu and dropdown after clicking a link
+            closeMobileMenu();
             if (worksDropdownWrapper) {
               worksDropdownWrapper.classList.remove('active');
             }

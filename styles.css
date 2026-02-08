@@ -50,6 +50,7 @@ body {
   color: var(--color-text-light);
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Fixed Background Image - Fullscreen */
@@ -201,6 +202,46 @@ body {
   color: var(--color-primary);
 }
 
+/* Burger Menu (hidden on desktop) */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+  z-index: 1001;
+}
+
+.burger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text-light);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger-menu.active .burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-menu.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active .burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Body scroll lock when mobile menu open */
+body.menu-open {
+  overflow: hidden;
+}
+
 /* ========================================
    Main Content
    ======================================== */
@@ -296,14 +337,14 @@ body {
 
 .scroll-indicator-text {
   font-size: 12px;
-  color: var(--color-text-medium);
+  color: #f5f5f5;
   letter-spacing: 0.05em;
 }
 
 .scroll-indicator svg {
   width: 32px;
   height: 32px;
-  stroke: var(--color-text-dim);
+  stroke: #f5f5f5;
 }
 
 @keyframes bounce {
@@ -456,7 +497,7 @@ body {
   padding: 20px;
   margin-bottom: 12px;
   border-radius: var(--border-radius-sm);
-  z-index: 10;
+  z-index: 20;
   transition: background 0.3s ease, margin-left 0.3s ease, margin-right 0.3s ease, padding 0.3s ease;
 }
 
@@ -684,6 +725,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: var(--border-radius);
+  padding: 32px;
 }
 
 .about-header {
@@ -777,6 +821,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  background: #0a0a0a;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 32px;
 }
 
 .form-group {
@@ -835,6 +883,89 @@ body {
 .form-select option {
   background: var(--color-bg-input);
   color: var(--color-text-light);
+}
+
+/* Custom Select - matches nav dropdown design */
+.custom-select {
+  position: relative;
+}
+
+.custom-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-dim);
+  height: 48px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.custom-select-trigger:hover,
+.custom-select.open .custom-select-trigger {
+  border-color: var(--color-primary);
+}
+
+.custom-select.has-value .custom-select-trigger {
+  color: var(--color-text-light);
+}
+
+.custom-select-chevron {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-dim);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.custom-select.open .custom-select-chevron {
+  transform: rotate(180deg);
+}
+
+.custom-select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  background: var(--color-bg-card);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  padding: 12px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 100;
+}
+
+.custom-select.open .custom-select-options {
+  opacity: 1;
+  visibility: visible;
+}
+
+.custom-select-option {
+  display: block;
+  padding: 10px 20px;
+  color: var(--color-text-light);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.custom-select-option:hover {
+  background: rgba(179, 90, 60, 0.1);
+  color: var(--color-primary);
+}
+
+.custom-select-option.selected {
+  color: var(--color-primary);
 }
 
 .form-textarea {
@@ -1043,7 +1174,7 @@ body {
 }
 
 .modal {
-  background: var(--color-bg-card-alt);
+  background: #0a0a0a;
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   padding: 40px;
@@ -1209,42 +1340,97 @@ body {
 
   .logo {
     position: static;
-    margin-right: auto;
+    margin-right: 0;
   }
 
   .logo-title {
     font-size: 18px;
+    line-height: 22px;
   }
 
   .logo-subtitle {
     font-size: 10px;
+    line-height: 14px;
   }
 
+  /* Show burger menu on mobile */
+  .burger-menu {
+    display: flex;
+  }
+
+  /* Mobile nav overlay */
   .nav-center {
-    gap: 20px;
-  }
-
-  .nav-item {
-    font-size: 14px;
-  }
-
-  .nav-item span:not(.nav-chevron) {
-    display: none;
-  }
-
-  .nav-item-wrapper .nav-item span {
-    display: inline;
-  }
-
-  .works-dropdown {
-    position: fixed;
+    position: absolute;
     top: 60px;
     left: 0;
     right: 0;
+    height: calc(100vh - 60px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 24px 0;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .nav-center.mobile-open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-item {
+    font-size: 18px;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-item-wrapper {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-item-wrapper .nav-item {
+    padding: 16px 24px;
+    border-bottom: none;
+  }
+
+  /* Works dropdown inline in mobile menu */
+  .works-dropdown {
+    position: static;
     transform: none;
     margin-top: 0;
     border-radius: 0;
     min-width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease, max-height 0.3s ease;
+  }
+
+  .nav-item-wrapper.active .works-dropdown {
+    opacity: 1;
+    visibility: visible;
+    max-height: 300px;
+  }
+
+  .nav-item-wrapper.active .nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-item {
+    padding: 12px 40px;
+    font-size: 16px;
   }
 
   .main-content {
@@ -1307,18 +1493,43 @@ body {
 }
 
 @media (max-width: 540px) {
+  /* Center-align all card content on mobile */
+  .artwork-card {
+    min-height: auto;
+    width: 100%;
+    text-align: center;
+    background: black;
+    border: 1px solid #595253;
+    border-radius: 28px;
+    overflow: hidden;
+  }
+
+  .card-frame {
+    display: none;
+  }
+
+  .card-content {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding-bottom: 20px;
+    min-height: auto;
+  }
+
   .artwork-images {
     gap: 16px;
+    justify-content: center;
   }
 
   .artwork-info {
     grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .badge-available,
   .badge-ref {
     grid-column: 1;
-    justify-self: start;
+    justify-self: center;
   }
 
   .badge-available {
@@ -1331,26 +1542,19 @@ body {
 
   .artwork-details {
     grid-row: 4;
+    align-items: center;
   }
 
-  /* Simplified layout on mobile - no notch, button inside card */
-  .artwork-card {
-    min-height: auto;
-    width: 100%;
+  /* Increase small text to 14px minimum */
+  .detail-label {
+    font-size: 14px;
   }
 
-  .card-frame {
-    display: none;
+  .badge {
+    font-size: 14px;
   }
 
-  .card-content {
-    background: black;
-    border: 1px solid #595253;
-    border-radius: 28px;
-    padding-bottom: 20px;
-    min-height: auto;
-  }
-
+  /* Button inside card */
   .btn-inquire {
     position: relative;
     left: auto;
@@ -1376,9 +1580,5 @@ body {
 
   .about-name {
     font-size: 20px;
-  }
-
-  .nav-center {
-    gap: 12px;
   }
 }
