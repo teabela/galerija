@@ -83,7 +83,7 @@
       <section id="works" class="works-section">
         <div class="section-header">
           <h2 class="section-title">Works</h2>
-          <p class="section-description">To inquire about specific piece copy the Reference number and click the 'Inquire about this piece' button.</p>
+          <p class="section-description">To inquire about specific piece click the 'Inquire about this piece' button.</p>
         </div>
 
         <!-- Small Format Works -->
@@ -131,7 +131,7 @@
         </div>
         <div class="about-content">
           <div class="about-image">
-            <img src="assets/5. Artist/1.jpg" alt="Mile Belančić" />
+            <img src="assets/5. Artist/thumbs/1.jpg" alt="Mile Belančić" />
           </div>
           <div class="about-text">
             <div class="about-header">
@@ -242,6 +242,9 @@
       </footer>
     </main>
 
+    <!-- Back to Top -->
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top"><span class="back-to-top-arrow">&uarr;</span><span class="back-to-top-text">Back to top</span></button>
+
     <!-- Image Lightbox -->
     <div class="lightbox-overlay" id="imageLightbox">
       <button type="button" class="lightbox-close">&times;</button>
@@ -286,59 +289,43 @@
         small: {
           path: 'assets/1. Small Format Works',
           refPrefix: 'MPH-S',
-          count: 8,
           items: [
-            { title: 'Artwork #1', materials: 'Photo on steel, oxidized brass frame', dimensions: '30 x 40 cm' },
-            { title: 'Artwork #2', materials: 'Photo on leather, steel frame', dimensions: '30 x 40 cm' },
-            { title: 'Artwork #3', materials: 'Photo on steel, rust patina', dimensions: '25 x 35 cm' },
-            { title: 'Artwork #4', materials: 'Photo on metal, welded frame', dimensions: '30 x 40 cm' },
-            { title: 'Artwork #5', materials: 'Photo on steel, brass details', dimensions: '25 x 35 cm' },
-            { title: 'Artwork #6', materials: 'Photo on leather, copper frame', dimensions: '30 x 40 cm' },
-            { title: 'Artwork #7', materials: 'Photo on steel, oxidized finish', dimensions: '25 x 35 cm' },
-            { title: 'Artwork #8', materials: 'Photo on metal, brass frame', dimensions: '30 x 40 cm' }
+            { title: 'Artwork #1', materials: 'Photo print on steel, wire mesh frame', dimensions: '25 x 37 cm', images: ['1_1.jpg', '1_2.jpg'] },
+            { title: 'Artwork #2', materials: 'Photo print on oxidized steel, porthole mount', dimensions: '24 x 29 cm', images: ['2_1.jpg', '2_2.jpg'] },
+            { title: 'Artwork #3', materials: 'Photo print on leather, wire mesh frame', dimensions: '21 x 32 cm', images: ['3_1.jpg', '3_2.jpg'] },
+            { title: 'Artwork #4', materials: 'Photo print on oxidized steel tray', dimensions: '21 x 36 cm', images: ['4_1.jpg', '4_2.jpg'] },
+            { title: 'Artwork #5', materials: 'Photo print on copper, forged iron frame', dimensions: '24 x 33 cm', images: ['5_1.jpg', '5_2.jpg'] },
+            { title: 'Artwork #6', materials: 'Photo print on steel, riveted heavy frame', dimensions: '15 x 40 cm', images: ['6_1.jpg', '6_2.jpg'] },
+            { title: 'Artwork #7', materials: 'Photo print on steel, perforated mesh frame', dimensions: '18 x 30 cm', images: ['7_1.jpg', '7_2.jpg'] },
+            { title: 'Artwork #8', materials: 'Photo print on rusted steel plate', dimensions: '22 x 32 cm', images: ['8_1.jpg', '8_2.jpg'] }
           ]
         },
         medium: {
           path: 'assets/2. Medium Format Works',
           refPrefix: 'MPH-M',
-          count: 17,
           items: [
-            { title: 'Artwork #9', materials: 'Photo on steel, oxidized frame', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #10', materials: 'Photo on leather, brass frame', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #11', materials: 'Photo on steel, rust patina', dimensions: '60 x 80 cm' },
-            { title: 'Artwork #12', materials: 'Photo on metal, copper details', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #13', materials: 'Photo on steel, welded frame', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #14', materials: 'Photo on leather, oxidized brass', dimensions: '60 x 80 cm' },
-            { title: 'Artwork #15', materials: 'Photo on steel, copper patina', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #16', materials: 'Photo on metal, heavy frame', dimensions: '60 x 80 cm' },
-            { title: 'Artwork #17', materials: 'Photo on steel, iron details', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #18', materials: 'Photo on leather, rust finish', dimensions: '60 x 80 cm' },
-            { title: 'Artwork #19', materials: 'Photo on steel, brass accents', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #20', materials: 'Photo on metal, oxidized frame', dimensions: '60 x 80 cm' },
-            { title: 'Artwork #21', materials: 'Photo on leather, copper patina', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #22', materials: 'Photo on steel, welded details', dimensions: '60 x 80 cm' },
-            { title: 'Artwork #23', materials: 'Photo on metal, rust treatment', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #24', materials: 'Photo on leather, brass frame', dimensions: '60 x 80 cm' },
-            { title: 'Artwork #25', materials: 'Photo on steel, oxidized finish', dimensions: '50 x 70 cm' }
+            { title: 'Artwork #1', materials: 'Matte print, rust-patina steel, welded frame', dimensions: '25 x 37 cm', images: ['1_1.jpg', '1_2.jpg'] },
+            { title: 'Artwork #2', materials: 'Matte print, steel basin mount, oval cutout', dimensions: '25 x 37 cm', images: ['2_1.jpg', '2_2.jpg'] },
+            { title: 'Artwork #3', materials: 'Matte print, riveted cowhide, wooden rod', dimensions: '25 x 37 cm', images: ['3_1.jpg', '3_2.jpg'] },
+            { title: 'Artwork #4', materials: 'Matte print, riveted steel, geometric frame', dimensions: '25 x 37 cm', images: ['4_1.jpg', '4_2.jpg'] },
+            { title: 'Artwork #5', materials: 'Matte print, steel mesh, welded frame', dimensions: '25 x 37 cm', images: ['5_1.jpg', '5_2.jpg'] }
           ]
         },
         large: {
           path: 'assets/3. Large Format Works',
           refPrefix: 'MPH-L',
-          count: 2,
           items: [
-            { title: 'Artwork #26', materials: 'Photo on steel, heavy welded frame', dimensions: '80 x 120 cm' },
-            { title: 'Artwork #27', materials: 'Photo on leather, oxidized steel frame', dimensions: '100 x 150 cm' }
+            { title: 'Artwork #26', materials: 'Photo on steel, heavy welded frame', dimensions: '80 x 120 cm', images: ['1_1.jpg', '1_2.jpg'] },
+            { title: 'Artwork #27', materials: 'Photo on leather, oxidized steel frame', dimensions: '100 x 150 cm', images: ['2_1.jpg', '2_2.jpg'] }
           ]
         },
         lamps: {
           path: 'assets/4. Photo Lamps',
           refPrefix: 'PL',
-          count: 3,
           items: [
-            { title: 'Artwork #28', materials: 'Backlit photo on steel, LED illumination', dimensions: '40 x 60 cm' },
-            { title: 'Artwork #29', materials: 'Backlit photo, brass frame, warm LED', dimensions: '50 x 70 cm' },
-            { title: 'Artwork #30', materials: 'Backlit photo on leather, steel base', dimensions: '45 x 65 cm' }
+            { title: 'Artwork #28', materials: 'Backlit photo on steel, LED illumination', dimensions: '\u00D860 cm', images: ['1_1.jpg', '1_2.jpg', '1_3.jpg', '1_4.jpg'] },
+            { title: 'Artwork #29', materials: 'Backlit photo, brass frame, warm LED', dimensions: '\u00D860 cm', images: ['2_1.jpg', '2_2.jpg', '2_3.jpg', '2_4.jpg'] },
+            { title: 'Artwork #30', materials: 'Backlit photo on leather, steel base', dimensions: '\u00D860 cm', images: ['3_1.jpg', '3_2.jpg', '3_3.jpg', '3_4.jpg'] }
           ]
         }
       };
@@ -349,7 +336,10 @@
       function generateCard(item, index, category) {
         const refNum = String(index + 1).padStart(3, '0');
         const ref = `${category.refPrefix}-${refNum}`;
-        const imgBase = `${category.path}/${index + 1}`;
+        const img1 = `${category.path}/${item.images[0]}`;
+        const img2 = `${category.path}/${item.images[1]}`;
+        const thumb1 = `${category.path}/thumbs/${item.images[0]}`;
+        const thumb2 = `${category.path}/thumbs/${item.images[1]}`;
 
         // Card dimensions: 504x514 (exact Figma)
         // S-curve notch at bottom-right for Inquire button dock
@@ -371,8 +361,8 @@
             </svg>
             <div class="card-content">
               <div class="artwork-images">
-                <img src="${imgBase}_1.jpg" alt="${item.title}" class="artwork-img artwork-img-main" onclick="openLightbox(this)" />
-                <img src="${imgBase}_2.jpg" alt="${item.title}" class="artwork-img artwork-img-secondary" onclick="openLightbox(this)" />
+                <img src="${thumb1}" data-full="${img1}" alt="${item.title}" class="artwork-img artwork-img-main" onclick="openLightbox(this)" />
+                <img src="${thumb2}" data-full="${img2}" alt="${item.title}" class="artwork-img artwork-img-secondary" onclick="openLightbox(this)" />
               </div>
               <div class="artwork-info">
                 <h4 class="artwork-title">${item.title}</h4>
@@ -475,12 +465,19 @@
 
       // Copy reference number to clipboard
       function copyRef(ref) {
+        const btn = event.currentTarget;
         navigator.clipboard.writeText(ref).then(() => {
-          const btn = event.currentTarget;
-          const originalText = btn.querySelector('span').textContent;
-          btn.querySelector('span').textContent = 'Copied!';
+          const span = btn.querySelector('span');
+          const svg = btn.querySelector('svg');
+          const originalText = span.textContent;
+          const originalSvg = svg.innerHTML;
+          span.textContent = 'Copied!';
+          svg.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+          btn.classList.add('copied');
           setTimeout(() => {
-            btn.querySelector('span').textContent = originalText;
+            span.textContent = originalText;
+            svg.innerHTML = originalSvg;
+            btn.classList.remove('copied');
           }, 1500);
         });
       }
@@ -536,7 +533,7 @@
       // Image Lightbox
       function openLightbox(img) {
         const lightbox = document.getElementById('imageLightbox');
-        document.getElementById('lightboxImg').src = img.src;
+        document.getElementById('lightboxImg').src = img.dataset.full || img.src;
         document.getElementById('lightboxImg').alt = img.alt;
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -742,6 +739,20 @@
             item.classList.add('active');
           }
         });
+      });
+
+      // Back to top button
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      }, { passive: true });
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     </script>
   </body>

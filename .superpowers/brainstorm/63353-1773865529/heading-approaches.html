@@ -1,0 +1,162 @@
+<h2>Category Header Entrance Animation</h2>
+<p class="subtitle">How should the header appear when you scroll into its section?</p>
+
+<style>
+  .demo-container {
+    margin: 16px 0;
+    padding: 24px;
+    background: #0d0906;
+    border-radius: 8px;
+    min-height: 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .demo-header {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #f5f5f5;
+    padding: 16px 20px;
+    border-radius: 6px;
+  }
+  .demo-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #7a8494;
+    margin-top: 6px;
+  }
+  .demo-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 16px;
+    background: #b35a3c;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+  }
+  .demo-btn:hover { background: #c96a4c; }
+
+  /* Current behavior */
+  .demo-current {
+    background: transparent;
+    transition: background 0.3s ease, margin-left 0.3s ease, margin-right 0.3s ease;
+  }
+  .demo-current.active {
+    background: rgba(0,0,0,0.65);
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+
+  /* Option A: Fade + subtle slide up */
+  .demo-fade {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .demo-fade.active {
+    opacity: 1;
+    transform: translateY(0);
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(2px);
+  }
+
+  /* Option B: Fade + underline reveal */
+  .demo-underline {
+    opacity: 0.4;
+    transition: opacity 0.5s ease-out;
+    position: relative;
+  }
+  .demo-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 80%;
+    height: 2px;
+    background: #b35a3c;
+    transition: right 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out;
+    opacity: 0;
+  }
+  .demo-underline.active {
+    opacity: 1;
+  }
+  .demo-underline.active::after {
+    right: 20px;
+    opacity: 1;
+  }
+
+  /* Option C: Soft background glow */
+  .demo-glow {
+    opacity: 0.5;
+    transition: opacity 0.6s ease-out, background 0.6s ease-out, box-shadow 0.6s ease-out;
+    background: transparent;
+  }
+  .demo-glow.active {
+    opacity: 1;
+    background: rgba(179, 90, 60, 0.06);
+    box-shadow: 0 1px 0 0 rgba(179, 90, 60, 0.15);
+  }
+</style>
+
+<div class="section">
+  <div class="label">Current behavior</div>
+  <div class="demo-container">
+    <div class="demo-header demo-current" id="demo0">
+      Small Format Works
+      <div class="demo-subtitle">0.3s background + expand to edges</div>
+    </div>
+    <button class="demo-btn" onclick="document.getElementById('demo0').classList.toggle('active')">Toggle</button>
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Fade + Gentle Rise</h3>
+      <p>Header fades in and slides up ~8px with a smooth deceleration curve. Soft frosted background. No horizontal expansion.</p>
+      <div class="demo-container">
+        <div class="demo-header demo-fade" id="demo1">
+          Small Format Works
+          <div class="demo-subtitle">0.6s fade + translateY with ease-out curve</div>
+        </div>
+        <button class="demo-btn" onclick="event.stopPropagation(); document.getElementById('demo1').classList.toggle('active')">Toggle</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Fade + Accent Underline</h3>
+      <p>Text fades from dim to full opacity. A primary-color underline sweeps in from left. No background change, minimal and elegant.</p>
+      <div class="demo-container">
+        <div class="demo-header demo-underline" id="demo2">
+          Small Format Works
+          <div class="demo-subtitle">0.5s opacity + 0.7s underline sweep</div>
+        </div>
+        <button class="demo-btn" onclick="event.stopPropagation(); document.getElementById('demo2').classList.toggle('active')">Toggle</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Soft Warm Glow</h3>
+      <p>Text brightens from dim to full. A very subtle warm tinted background and bottom border appear. Stays in place — no movement.</p>
+      <div class="demo-container">
+        <div class="demo-header demo-glow" id="demo3">
+          Small Format Works
+          <div class="demo-subtitle">0.6s opacity + warm background tint</div>
+        </div>
+        <button class="demo-btn" onclick="event.stopPropagation(); document.getElementById('demo3').classList.toggle('active')">Toggle</button>
+      </div>
+    </div>
+  </div>
+</div>
