@@ -207,7 +207,7 @@ body {
   display: none;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   background: none;
   border: none;
   cursor: pointer;
@@ -226,7 +226,7 @@ body {
 }
 
 .burger-menu.active .burger-line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
 }
 
 .burger-menu.active .burger-line:nth-child(2) {
@@ -234,12 +234,16 @@ body {
 }
 
 .burger-menu.active .burger-line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Body scroll lock when mobile menu open */
 body.menu-open {
   overflow: hidden;
+}
+
+body.menu-open .top-nav {
+  background: rgba(0, 0, 0, 0.92);
 }
 
 /* ========================================
@@ -1604,7 +1608,8 @@ body.menu-open {
     background: transparent;
     border: none;
     border-radius: 0;
-    padding-bottom: 24px;
+    padding: 24px;
+    padding-bottom: 0;
     min-height: auto;
   }
 
@@ -1614,6 +1619,7 @@ body.menu-open {
 
   .artwork-info {
     grid-template-columns: 1fr auto;
+    gap: 16px;
     justify-items: start;
   }
 
